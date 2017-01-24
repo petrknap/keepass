@@ -1,0 +1,25 @@
+#!/bin/bash
+
+sudo apt-get install mono-devel xdotool
+
+echo "#!/bin/bash" > run
+echo "mono \"$(pwd)/app/KeePass.exe\"" >> run
+chmod +x run
+
+echo "#!/bin/bash" > auto-type
+echo "if [ ! -e \"$(pwd)/auto-type.lock\" ]" >> auto-type
+echo "then" >> auto-type
+echo "touch \"$(pwd)/auto-type.lock\"" >> auto-type
+echo "mono \"$(pwd)/app/KeePass.exe\" --auto-type" >> auto-type
+echo "rm \"$(pwd)/auto-type.lock\"" >> auto-type
+echo "fi" >> auto-type
+chmod +x auto-type
+
+echo "Add shortcut"
+echo ""
+echo "   1) Go to Settings - Keyboard"
+echo "   2) Switch to Shotctuts tab"
+echo "   3) Add Custom Shortcut for \"$(pwd)/auto-type\""
+echo ""
+read -p "[Press Any Key]"
+
