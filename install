@@ -1,8 +1,8 @@
 #!/usr/bin/env bash
 set -e
 
-VERSION=2.53.1
-SHA_256="A8B59E3B 874C914A 93092B4C B3FF708D 67FD36C6 4B9EB37C 83CC4BBD 389FDD3E" # https://keepass.info/integrity.html
+VERSION=2.54
+SHA_256="CC3EE6ED A0B4BC46 DB378FD3 BBE6E2E5 F7480B4D 3AE544B7 F03330A3 45E838C2" # https://keepass.info/integrity.html
 
 # Download application
 ARCHIVE="KeePass-${VERSION}.zip"
