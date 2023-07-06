@@ -21,7 +21,9 @@ sha256sum --check "${SHA_256_FILE}" || exit 1
 
 # Update application
 APP_DIR="$(pwd)/app"
-find "${APP_DIR}" ! -name "KeePass.config.xml" -type f -exec rm -f {} +
+if [[ -e "${APP_DIR}" ]]; then (
+  find "${APP_DIR}" ! -name "KeePass.config.xml" -type f -exec rm -f {} +
+); fi
 unzip "${LOCAL_ARCHIVE}" -d "${APP_DIR}"
 sudo apt install -y mono-devel xdotool
 
